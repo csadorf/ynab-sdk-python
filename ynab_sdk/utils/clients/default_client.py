@@ -12,6 +12,7 @@ class DefaultClient(BaseClient):
         url = self.config.full_url + endpoint
         self.logger.debug(f"Sending get at  {url}")
         response = requests.get(url, headers=self.headers)
+        response.raise_for_status()
         data = response.json()
 
         return data

@@ -47,5 +47,6 @@ class CachedClient(DefaultClient):
             else:
                 self.logger.error(f"Error when getting {url}")
                 self.logger.error(data)
+                response.raise_for_status()
 
         return data
